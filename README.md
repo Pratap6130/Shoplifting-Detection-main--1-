@@ -1,27 +1,4 @@
-# Shoplifting-Detection
----
-#### Project creators
--  Amit Hayun [Amit@silentvision.org](Amit@silentvision.org)
--  Amit Hayun [Linkedin](https://www.linkedin.com/in/amithayun82797614a/)
--  [Silentvision](silentvision.org)
-
-
-
-SL -Shoplifting detection Provides real-time alerts for the SMB market retailers, to monitor and report customer behavior when shoplifting occur, by analyzing security camera frames and performing real-time forecasting using cutting edge lightweight deep neural  network 3D-CNN architecture
-
-## Table of contents
----
-* [Project highlights](#Project-highlights)
-* [Introduction ](#Introduction)
-* [Data collection](#Data-collection)
-* [Model architecture](#Model-architecture)
-* [Model training && Evaluation](#Model-training-&&-Evaluation)
-* [System overview](#System-overview)
-* [SL PIPELINE Demo](#ADS-PIPELINE-Demo)
-* [Input-Output examples](#Input-Output-examples)
-* [Setup](#setup)
-* [Reference](#Reference)
-
+# Theft-Detection
 
 ## Project highlights
 ---
@@ -49,20 +26,8 @@ One of the most challenging tasks in computer vision is Human Action Recognition
 
 - A common approach in the HAR domain, is to treat video frames as images and apply **2D-CNN** (Conventional Neural Network) to recognize the action in every single frame from the video stream.One of the main deficiencies of this approach is that each video frame forms only a tiny part of the video's story, such an approach will be using incomplete information and could, therefore, easily wrongly classified, especially if there are fine-grind distinctions. In the HAR domain a single frame analysis may interoperate as different activity from the realty, when there are different shapes (e.g., person is doing pushups, or he fall down). This is termed interclass similarity, which is a common phenomenon in HAR.
 
-- the solution for interclass similarity problem is to extend the2D- CNN form 2D to 3D. As such the network has access not only the visual appearance present in each video frame, but also the temporal evaluation across consecutive frames. the training of **3D CNN** is very computationally expensive, and the model size also has quadratic growth compared to 2D CNN. The general trend has been to make deeper and more complicated network to achieve higher accuracy. however, these advances to improve accuracy are not necessarily making networks more efficient with respect to size and speed. Despite the effectiveness of **3D-CNN** volumetric models, most of the current architectures requires a huge computational power due to the convolution operation and the large number of parameters. Because of the volumetric nature of the convolutional filters to extract the features which increase the computational complexity cubically, which limits the usage of 3D-CNN volumetric in DL models for real time inference tasks.
-
-- Applications that relay on recognition task to be carried in a timely fashion need to understand the computation limitation of the used platform.
-This has special importance when we desire to identify an incident that consists of several complex action, in which the time is critical element, and the observed behavior are complex actions that require prolonged and consistent observation to decide whether an incident occurred or not. Accurate and distinctive algorithms need to be designed to solve this problem.
-
-
-
-
 ### Problem statement
-Real-time analysis of each camera has become an exhaustive task due to human limitations. The primary human limitation is the visual focus of attention. The human gaze can only concentrate on one specific point at once. Although there are large screens and high-resolution cameras, a person can only regard a small segment of the image at a time. Thieves are well aware that watching all the video footage is too demanding for "SMBs" such as retailers\ grocery\convenience stores, which makes the technology lose its role as a deterrent.
-
- - **Shoplifting is conservatively estimated to account for 30% – 40% of total retail shrink/losses.**
-   + **(Universities of Florida and Hayes International surveys)**
- - **The average shoplifting case value in 2021 was $310.11, reflecting an increase of 13.0% from 2020**
+Real-time analysis of each camera has become an exhaustive task due to human limitations. The primary human limitation is the visual focus of attention. The human gaze can only concentrate on one specific point at once. Although there are large screens and high-resolution cameras, a person can only regard a small segment of the image at a time. Thieves are well aware that watching all the video footage is too demanding for "SMBs" such as retailers\ grocery\convenience stores, which makes the technology lose its role as a deterrent
  
 #### Project goals:
 provides a comprehensive solution for monitoring and detecting unusual events in real-time without the need for human supervision, the system will alert on
@@ -90,38 +55,7 @@ crime lapse activities such as:
 - Concealing an item in a bag.
 
 
-## Data 
----
-#### Data collection
-In order to train deep learning models, the first step is data collection raw video data collected from security cameras from two supermarkets, the theft was
-committed by actors in several different theft scenarios inside the store
-
-Scenarios tested:
-- Product taking/returning/ examination of the product
-- Inserting an item in a pocket / coat / bag
-
-
-All the cases of theft were examined in a variety of shooting angles, and by rotation of actors and clothing.
-
-we collect 4000 video clips after the filtering process.
-A link to the dataset sample is provided, for the entire Dataset
-
-send email to info@silentvision.org
-
-
-
 ## Model architecture
----
-##### Network name: **Gate_Flow_SlowFast**
-
-#### Model description:
- Inspired by **SlowFast Networks for Video Recognition** and the **mobileNet-SSD** architecture.
- this Model design combines the Tow gate stream architecture and the SlowFastNetwork architecture.
-The idea is to simulate the human brain in the aspect of visual information processing and split the data into 2 channels.
-
-- **Slow**
- Simulates a slow information processing process in the brain - the goal of this channel is to teach the network as deep characteristics as possible.
-Receives as input - 4 Frames
 
 - **Fast**
 Simulates a fast information processing process in the brain - the purpose of this channel is to teach the network local properties temporal feature
